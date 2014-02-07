@@ -19,6 +19,9 @@ end
 # development gems
 group :development, :test do
   gem 'figaro', '~> 0.7.0'     # env variables
+
+  gem 'pry'                    # debugger
+  gem 'pry-nav'
 end
 
 # Paging
@@ -44,4 +47,6 @@ gem 'bootstrap-sass', '~> 3.0.3.0'
 group :test do
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
+
+  gem 'rspec'
 end
