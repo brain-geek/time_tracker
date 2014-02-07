@@ -7,3 +7,7 @@ end
 Then(/^I see "(.*?)"$/) do |target_text|
   page.should have_text(target_text)
 end
+
+Then(/^I should not see "(.*?)"$/) do |target_text|
+  page.should_not have_text(target_text)
+end

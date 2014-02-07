@@ -22,6 +22,9 @@ group :development, :test do
 
   gem 'pry'                    # debugger
   gem 'pry-nav'
+
+  gem 'fabrication'            # test data creation
+  gem 'ffaker'
 end
 
 # Paging
