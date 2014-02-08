@@ -23,7 +23,7 @@ describe TimeEntriesController do
   # This should return the minimal set of attributes required to create a valid
   # TimeEntry. As you add validations to TimeEntry, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "started_at" => "2014-02-07 17:39:49" } }
+  let(:valid_attributes) { Fabricate.attributes_for(:time_entry) }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in

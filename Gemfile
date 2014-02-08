@@ -49,6 +49,7 @@ gem 'bootstrap-sass', '~> 3.0.3.0'
 
 group :test do
   gem 'cucumber-rails', :require => false
+  gem 'selenium-webdriver'
   gem 'database_cleaner'
 
   gem 'rspec-rails'

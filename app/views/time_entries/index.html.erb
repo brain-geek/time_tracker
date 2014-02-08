@@ -1,5 +1,7 @@
 <h1>Listing time_entries</h1>
 
+<%= link_to "Start timer", time_entries_path(time_entry: {active: true}), method: :create %>
+
 <table>
   <thead>
     <tr>

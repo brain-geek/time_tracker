@@ -8,11 +8,11 @@ describe TimeEntriesController do
     end
 
     it "routes to #new" do
-      get("/time_entries/new").should_not route_to("time_entries#new")
+      get("/time_entries/new").should route_to("time_entries#new")
     end
 
     it "routes to #show" do
-      get("/time_entries/1").should_not route_to("time_entries#show", :id => "1")
+      get("/time_entries/1").should route_to("time_entries#show", :id => "1")
     end
 
     it "routes to #edit" do

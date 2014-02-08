@@ -1,10 +1,24 @@
 class TimeEntriesController < ApplicationController
-  before_action :set_time_entry, only: [:update, :destroy]
+  before_action :set_time_entry, only: [:show, :edit, :update, :destroy]
 
   # GET /time_entries
   # GET /time_entries.json
   def index
     @time_entries = TimeEntry.all
+  end
+
+  # GET /time_entries/1
+  # GET /time_entries/1.json
+  def show
+  end
+
+  # GET /time_entries/new
+  def new
+    @time_entry = TimeEntry.new
+  end
+
+  # GET /time_entries/1/edit
+  def edit
   end
 
   # POST /time_entries
