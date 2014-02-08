@@ -24,3 +24,10 @@ Feature: Time Tracking
     Then I see "Active timer started less than a minute ago."
     And travel "one hour from now"
     Then I see "Active timer started about 1 hour ago."
+
+  Scenario: Stop timer
+    Given I am signed in
+    And I am on the "Time tracking" page
+    When I click "Start timer" button
+    When I click "Stop timer" button
+    Then I have no working timers

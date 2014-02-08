@@ -2,6 +2,7 @@
 
 <% if @active_timer %>
   Active timer started <%= distance_of_time_in_words_to_now @active_timer.started_at %> ago.
+  <%= link_to "Stop timer", time_entry_path(@active_timer, time_entry: {active: false}), method: :patch %>
 <% else %>
   <%= link_to "Start timer", time_entries_path(time_entry: {active: true}), method: :create %>
 <% end %>
