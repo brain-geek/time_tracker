@@ -1,0 +1,31 @@
+<h1>Listing time_entries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Started at</th>
+      <th>Length</th>
+      <th>Active</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @time_entries.each do |time_entry| %>
+      <tr>
+        <td><%= time_entry.started_at %></td>
+        <td><%= time_entry.length %></td>
+        <td><%= time_entry.active %></td>
+        <td><%= link_to 'Show', time_entry %></td>
+        <td><%= link_to 'Edit', edit_time_entry_path(time_entry) %></td>
+        <td><%= link_to 'Destroy', time_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Time entry', new_time_entry_path %>

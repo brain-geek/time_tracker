@@ -1,5 +1,9 @@
 Given(/^I am on the "(.*?)" page$/) do |page_name|
-  if page_name == 'Sign in'
-    visit new_user_session_path
-  end
+  pages = {
+    'Sign in' => new_user_session_path,
+    'Time tracking' => ''
+  }
+
+  pages.should have_key(page_name)
+  visit(pages[page_name])
 end
