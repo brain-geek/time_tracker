@@ -77,7 +77,7 @@ describe TimeEntriesController do
 
       it "redirects to the created time_entry" do
         post :create, {:time_entry => valid_attributes}, valid_session
-        response.should redirect_to(TimeEntry.last)
+        response.should redirect_to(time_entries_url)
       end
     end
 
@@ -119,7 +119,7 @@ describe TimeEntriesController do
       it "redirects to the time_entry" do
         time_entry = TimeEntry.create! valid_attributes
         put :update, {:id => time_entry.to_param, :time_entry => valid_attributes}, valid_session
-        response.should redirect_to(time_entry)
+        response.should redirect_to(time_entries_url)
       end
     end
 

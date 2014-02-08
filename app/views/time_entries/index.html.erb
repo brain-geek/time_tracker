@@ -1,6 +1,10 @@
 <h1>Listing time_entries</h1>
 
-<%= link_to "Start timer", time_entries_path(time_entry: {active: true}), method: :create %>
+<% if @active_timer %>
+  Active timer started <%= distance_of_time_in_words_to_now @active_timer.started_at %> ago.
+<% else %>
+  <%= link_to "Start timer", time_entries_path(time_entry: {active: true}), method: :create %>
+<% end %>
 
 <table>
   <thead>

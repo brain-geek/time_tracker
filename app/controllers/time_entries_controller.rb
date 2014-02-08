@@ -5,6 +5,8 @@ class TimeEntriesController < ApplicationController
   # GET /time_entries.json
   def index
     @time_entries = TimeEntry.all
+
+    @active_timer = TimeEntry.where(active: true).first
   end
 
   # GET /time_entries/1
@@ -28,8 +30,8 @@ class TimeEntriesController < ApplicationController
 
     respond_to do |format|
       if @time_entry.save
-        format.html { redirect_to @time_entry, notice: 'Time entry was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @time_entry }
+        format.html { redirect_to time_entries_url, notice: 'Time entry was successfully created.' }
+        format.json { render action: 'show', status: :created, location: time_entries_url }
       else
         format.html { render action: 'new' }
         format.json { render json: @time_entry.errors, status: :unprocessable_entity }
@@ -42,7 +44,7 @@ class TimeEntriesController < ApplicationController
   def update
     respond_to do |format|
       if @time_entry.update(time_entry_params)
-        format.html { redirect_to @time_entry, notice: 'Time entry was successfully updated.' }
+        format.html { redirect_to time_entries_url, notice: 'Time entry was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

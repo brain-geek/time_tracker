@@ -15,6 +15,12 @@ Feature: Time Tracking
     And I am on the "Time tracking" page
     Then I see "Start timer"
     And I click "Start timer" button
-    Then I see "Started at"
     And I should not see "Start timer"
 
+  Scenario: Output of time from the current active timer
+    Given I am signed in
+    And I am on the "Time tracking" page
+    And I click "Start timer" button
+    Then I see "Active timer started less than a minute ago."
+    And travel "one hour from now"
+    Then I see "Active timer started about 1 hour ago."
