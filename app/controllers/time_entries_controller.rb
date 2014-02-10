@@ -1,5 +1,5 @@
 class TimeEntriesController < ApplicationController
-  before_action :set_time_entry, only: [:show, :edit, :update, :destroy]
+  before_action :set_time_entry, only: [:show, :edit, :update, :destroy, :stop_timer]
 
   # GET /time_entries
   # GET /time_entries.json
@@ -34,6 +34,18 @@ class TimeEntriesController < ApplicationController
         format.json { render action: 'show', status: :created, location: time_entries_url }
       else
         format.html { render action: 'new' }
+        format.json { render json: @time_entry.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def stop_timer
+    respond_to do |format|
+      if @time_entry.stop_timer
+        format.html { redirect_to time_entries_url, notice: 'Time entry was successfully stopped.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
         format.json { render json: @time_entry.errors, status: :unprocessable_entity }
       end
     end

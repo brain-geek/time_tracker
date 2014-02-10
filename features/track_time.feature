@@ -31,3 +31,11 @@ Feature: Time Tracking
     When I click "Start timer" button
     When I click "Stop timer" button
     Then I have no working timers
+
+  Scenario: Logging time
+    Given I am signed in
+    And I am on the "Time tracking" page
+    When I click "Start timer" button
+    And travel "five hours from now"
+    When I click "Stop timer" button
+    Then I have timer with "1800" seconds logged

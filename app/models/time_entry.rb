@@ -3,5 +3,15 @@ class TimeEntry < ActiveRecord::Base
 
   def set_default_started_at
     self.started_at ||= Time.now
-  end  
+    self.active ||= true
+  end
+
+  def stop_timer
+    return unless active? 
+
+    self.length = Time.now.to_i - started_at.to_i
+    self.active = false
+
+    save
+  end
 end
